@@ -116,7 +116,7 @@
 % Column 1, Row 1: ecephys.json
 \node[narrowcontentbox, right=0.2cm of treenode.north east, anchor=north west] (box4) {
     \textbf{\normalsize\ttfamily *\_ecephys.json}\\[2pt]
-    {\footnotesize\textcolor{gray}{Recording Metadata}}\\[4pt]
+    {\footnotesize\textcolor{gray}{Recording Metadata Sidecar}}\\[4pt]
     {\tiny\ttfamily
     \{\\
     ~~"TaskName": "discrimination",\\
@@ -143,7 +143,7 @@
 % Column 1, Row 2: ecephys.nix
 \node[narrowcontentbox, below=0.6cm of box4.south west, anchor=north west] (box8) {
     \textbf{\normalsize\ttfamily *\_ecephys.nix}\\[2pt]
-    {\footnotesize\textcolor{gray}{Electrophysiology Data}}\\[4pt]
+    {\footnotesize\textcolor{gray}{Extracellular Electrophysiology Data}}\\[4pt]
     \includegraphics[width=6cm]{../figures/traces.png}
 };
 \node[labelstyle] at ([xshift=-0.4cm, yshift=-0.4cm]box8.north east) {1};
@@ -151,7 +151,7 @@
 % Column 2, Row 1: probes.tsv
 \node[widecontentbox, right=0.2cm of box4.north east, anchor=north west] (box1) {
     \textbf{\normalsize\ttfamily *\_probes.tsv}\\[2pt]
-    {\footnotesize\textcolor{gray}{Probe Specifications}}\\[4pt]
+    {\footnotesize\textcolor{gray}{Probes Table}}\\[4pt]
     {\tiny\ttfamily
     \begin{tabular}{@{}llllllll@{}}
     \toprule
@@ -168,7 +168,7 @@
 % Column 2, Row 2: channels.tsv
 \node[widecontentbox, below=0.6cm of box1.south west, anchor=north west] (box3) {
     \textbf{\normalsize\ttfamily *\_channels.tsv}\\[2pt]
-    {\footnotesize\textcolor{gray}{Channel Properties}}\\[4pt]
+    {\footnotesize\textcolor{gray}{Channels Table}}\\[4pt]
     {\tiny\ttfamily
     \begin{tabular}{@{}llllllll@{}}
     \toprule
@@ -187,7 +187,7 @@
 % Column 2, Row 3: electrodes.tsv
 \node[widecontentbox, below=0.6cm of box3.south west, anchor=north west] (box5) {
     \textbf{\normalsize\ttfamily *\_electrodes.tsv}\\[2pt]
-    {\footnotesize\textcolor{gray}{Electrodes (probe-relative)}}\\[4pt]
+    {\footnotesize\textcolor{gray}{Electrodes Table (probe-relative)}}\\[4pt]
     {\tiny\ttfamily
     \begin{tabular}{@{}llllllllll@{}}
     \toprule
@@ -206,7 +206,7 @@
 % Column 2, Row 4: space-*_electrodes.tsv
 \node[widecontentbox, below=0.6cm of box5.south west, anchor=north west] (box7) {
     \textbf{\normalsize\ttfamily *\_space-*\_electrodes.tsv}\\[2pt]
-    {\footnotesize\textcolor{gray}{Electrodes (stereotaxic)}}\\[4pt]
+    {\footnotesize\textcolor{gray}{Electrodes Table (stereotaxic)}}\\[4pt]
     {\tiny\ttfamily
     \begin{tabular}{@{}llllllll@{}}
     \toprule
@@ -224,7 +224,7 @@
 % Column 3, Row 1: probes.json
 \node[narrowcontentbox, right=0.2cm of box1.north east, anchor=north west] (box2) {
     \textbf{\normalsize\ttfamily *\_probes.json}\\[2pt]
-    {\footnotesize\textcolor{gray}{ProbeInterface}}\\[4pt]
+    {\footnotesize\textcolor{gray}{Probe Metadata Sidecar}}\\[4pt]
     {\tiny\ttfamily
     \{\\
     ~~"model": \{\\
@@ -254,7 +254,7 @@
 % Column 3, Row 2: coordsystem.json
 \node[narrowcontentbox, below=0.6cm of box2.south west, anchor=north west] (box6) {
     \textbf{\normalsize\ttfamily *\_space-*\_coordsystem.json}\\[2pt]
-    {\footnotesize\textcolor{gray}{Coordinate System}}\\[4pt]
+    {\footnotesize\textcolor{gray}{Coordinate System Metadata Sidecar}}\\[4pt]
     {\tiny\ttfamily
     \{\\
     ~~"MicroephysCoordinateSystem": "StereoTaxic",\\

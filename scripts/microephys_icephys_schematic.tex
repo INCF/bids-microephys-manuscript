@@ -82,7 +82,7 @@
 .2 dataset\_description.json.
 .2 participants.tsv.
 .2 samples.tsv \filelabel{1}.
-.2 samples.json.
+.2 samples.json \filelabel{6}.
 .2 sub-20230615A/.
 .3 sub-20230615A\_sample-cell001\_scans.tsv.
 .3 icephys/.
@@ -92,7 +92,7 @@
 .4 sub-20230615A\_events.json.
 .4 sub-20230615A\_task-IVcurve\_icephys.nwb.
 .4 sub-20230615A\_task-IVcurve\_icephys.json \filelabel{5}.
-.4 sub-20230615A\_task-IVcurve\_events.tsv \filelabel{6}.
+.4 sub-20230615A\_task-IVcurve\_events.tsv.
 }
 }
 };
@@ -101,7 +101,7 @@
 % Box 1: samples.tsv
 \node[widecontentbox, right=0.2cm of treenode.north east, anchor=north west] (box1) {
     \textbf{\normalsize\ttfamily samples.tsv}\\[2pt]
-    {\footnotesize\textcolor{gray}{Sample Information}}\\[4pt]
+    {\footnotesize\textcolor{gray}{Samples Table}}\\[4pt]
     {\tiny\ttfamily
     \begin{tabular}{@{}llllll@{}}
     \toprule
@@ -119,7 +119,7 @@
 % Box 2: probes.tsv
 \node[widecontentbox, below=0.6cm of box1.south west, anchor=north west] (box2) {
     \textbf{\normalsize\ttfamily *\_probes.tsv}\\[2pt]
-    {\footnotesize\textcolor{gray}{Pipette Specifications}}\\[4pt]
+    {\footnotesize\textcolor{gray}{Probes Table (pipette)}}\\[4pt]
     {\tiny\ttfamily
     \begin{tabular}{@{}llllllll@{}}
     \toprule
@@ -135,7 +135,7 @@
 % Box 3: electrodes.tsv
 \node[widecontentbox, below=0.6cm of box2.south west, anchor=north west] (box3) {
     \textbf{\normalsize\ttfamily *\_electrodes.tsv}\\[2pt]
-    {\footnotesize\textcolor{gray}{Electrode Properties}}\\[4pt]
+    {\footnotesize\textcolor{gray}{Electrodes Table}}\\[4pt]
     {\tiny\ttfamily
     \begin{tabular}{@{}llllllll@{}}
     \toprule
@@ -151,7 +151,7 @@
 % Box 4: channels.tsv
 \node[widecontentbox, below=0.6cm of box3.south west, anchor=north west] (box4) {
     \textbf{\normalsize\ttfamily *\_channels.tsv}\\[2pt]
-    {\footnotesize\textcolor{gray}{Channel Properties}}\\[4pt]
+    {\footnotesize\textcolor{gray}{Channels Table}}\\[4pt]
     {\tiny\ttfamily
     \begin{tabular}{@{}llllllll@{}}
     \toprule
@@ -164,31 +164,31 @@
 };
 \node[labelstyle] at ([xshift=-0.4cm, yshift=-0.4cm]box4.north east) {4};
 
-% Box 6: events.tsv
-\node[widecontentbox, below=0.6cm of box4.south west, anchor=north west] (box6) {
-    \textbf{\normalsize\ttfamily *\_events.tsv}\\[2pt]
-    {\footnotesize\textcolor{gray}{Protocol Epochs}}\\[4pt]
-    {\tiny\ttfamily
-    \begin{tabular}{@{}llllll@{}}
-    \toprule
-    onset & duration & current\_amp & current\_units & protocol & epoch \\
-    \midrule
-    0.0 & 0.5 & -100 & pA & hyper & 1 \\
-    1.0 & 0.5 & -50 & pA & hyper & 2 \\
-    2.0 & 0.5 & 0 & pA & baseline & 3 \\
-    3.0 & 0.5 & 50 & pA & depol & 4 \\
-    4.0 & 0.5 & 100 & pA & depol & 5 \\
-    \bottomrule
-    \end{tabular}
-    }
-};
-\node[labelstyle] at ([xshift=-0.4cm, yshift=-0.4cm]box6.north east) {6};
+% % Box 6: events.tsv
+% \node[widecontentbox, below=0.6cm of box4.south west, anchor=north west] (box6) {
+%     \textbf{\normalsize\ttfamily *\_events.tsv}\\[2pt]
+%     {\footnotesize\textcolor{gray}{Protocol Epochs}}\\[4pt]
+%     {\tiny\ttfamily
+%     \begin{tabular}{@{}llllll@{}}
+%     \toprule
+%     onset & duration & current\_amp & current\_units & protocol & epoch \\
+%     \midrule
+%     0.0 & 0.5 & -100 & pA & hyper & 1 \\
+%     1.0 & 0.5 & -50 & pA & hyper & 2 \\
+%     2.0 & 0.5 & 0 & pA & baseline & 3 \\
+%     3.0 & 0.5 & 50 & pA & depol & 4 \\
+%     4.0 & 0.5 & 100 & pA & depol & 5 \\
+%     \bottomrule
+%     \end{tabular}
+%     }
+% };
+% \node[labelstyle] at ([xshift=-0.4cm, yshift=-0.4cm]box6.north east) {6};
 
 % COLUMN 2 - JSON FILES
 % Box 7: samples.json
 \node[narrowcontentbox, right=0.2cm of box1.north east, anchor=north west] (box7) {
     \textbf{\normalsize\ttfamily samples.json}\\[2pt]
-    {\footnotesize\textcolor{gray}{Sample Metadata}}\\[4pt]
+    {\footnotesize\textcolor{gray}{Samples Metadata Sidecar}}\\[4pt]
     {\tiny\ttfamily
     \{\\
     ~~"type": \{\\
@@ -206,11 +206,12 @@
     \}
     }
 };
+\node[labelstyle] at ([xshift=-0.4cm, yshift=-0.4cm]box7.north east) {6};
 
 % Box 5: icephys.json
 \node[narrowcontentbox, below=0.6cm of box7.south west, anchor=north west] (box5) {
     \textbf{\normalsize\ttfamily *\_icephys.json}\\[2pt]
-    {\footnotesize\textcolor{gray}{Recording Metadata}}\\[4pt]
+    {\footnotesize\textcolor{gray}{Recording Metadata Sidecar}}\\[4pt]
     {\tiny\ttfamily
     \{\\
     ~~"TaskName": "IVcurve",\\
