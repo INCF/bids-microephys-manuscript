@@ -115,6 +115,21 @@ The development of BEP032 began in [DATE] through the INCF Working Group on Stan
 
 The division between intracellular (icephys) and extracellular (ecephys) electrophysiology is based on the recording techniques and the resulting data characteristics. Icephys typically involves high-resolution recordings from individual neurons, requiring detailed metadata about the cell type, location, and experimental conditions. In contrast, ecephys captures broader population activity, necessitating metadata that describes the electrode array configuration, spatial sampling, and signal processing methods.
 
+\subsection*{Data Format Specification}
+
+
+\subsubsection*{Supported Formats}
+% NIX (.nix) - HDF5 backend with Neo interface
+% NWB (.nwb) - Neurodata Without Borders
+% Rationale: open formats, comprehensive metadata, existing tool ecosystem
+
+
+\subsubsection*{Data Stream Linking}
+% stream_id column in channels.tsv
+% Links channels to neurodata objects in NWB (e.g., /acquisition/ElectricalSeries)
+% Links channels to data arrays in NIX following Neo structure
+% Handles multiple data streams and split files
+
 \subsection*{Directory Structure and File Organization}
 % Following pattern from all electrophysiology papers
 
@@ -142,8 +157,15 @@ The division between intracellular (icephys) and extracellular (ecephys) electro
 % Core technical content following iEEG-BIDS electrode handling
 
 \subsubsection*{Probes TSV Specification}
-% New for microelectrophysiology
+% New for microelectrophysiology - NOT present in iEEG-BIDS
 % Table with required/optional columns
+% probe_name, type, hemisphere, coordinates (AP, ML, DV), angles
+
+\subsubsection*{ProbeInterface Integration}
+% Link to ProbeInterface library for standardized probe geometries
+% model column in probes.tsv with Levels and TermURL
+% Example: Neuropixels 1.0, NeuroNexus A1x32-Poly3
+% Enables automated electrode position lookup from community library
 
 \subsubsection*{Electrodes TSV Specification}
 % Adapt from Holdgraf2019
@@ -155,14 +177,34 @@ The division between intracellular (icephys) and extracellular (ecephys) electro
 
 \subsection*{Coordinate Systems}
 % Following Holdgraf2019 Section 2.4
+% KEY DIFFERENCE from iEEG: dual coordinate approach
 
-\subsubsection*{Stereotaxic Coordinates}
-% Bregma/lambda reference for rodents
-
-\subsubsection*{Atlas-Based Coordinates}
-% Allen CCF, Paxinos references
+\subsubsection*{Dual Coordinate Approach}
+% Without space-<label>: probe-relative coordinates (electrode positions on probe geometry)
+% With space-<label>: anatomical/stereotaxic coordinates
+% This differs from iEEG where positions are always in anatomical space
+% Rationale: microelectrode probes have known geometries but uncertain anatomical positions
 
 \subsubsection*{Probe-Relative Coordinates}
+% Default when no space entity
+% x, y, z relative to probe origin (typically tip)
+% Units in probes.tsv dimension_unit column
+% Essential for spike sorting and probe geometry
+
+\subsubsection*{Surgical Coordinate Conventions}
+% NEW appendix in specification
+% AP (Anterior-Posterior): positive = anterior
+% ML (Medial-Lateral): positive = right
+% DV (Dorsal-Ventral): positive = ventral
+% Angles: AP_angle, ML_angle, rotation_angle
+% Reference points: Bregma, Lambda, anatomical_reference_point column
+
+\subsubsection*{Brain Atlas Integration}
+% 12+ coordinate systems for cross-species support
+% Rodent: AllenCCFv3, WaxholmSpace, PaxinosWatson, FranklinPaxinos, SwansonRat, WistarRatAtlas
+% Primate: CHARM, D99, PaxinosMacaque, MarmosetBrainAtlas
+% Generic: Stereotaxic, Pixels, individual, Other
+% Each with RRID identifiers where available
 
 \subsection*{Spike Sorting and Derivatives}
 % New section critical for microelectrophysiology
