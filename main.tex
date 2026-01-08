@@ -310,75 +310,9 @@ The authors declare no competing interests.
 
 \begin{figure}[ht]
 \centering
-% Figure 1: Overview schematic
-\caption{Overview of the BIDS microelectrode electrophysiology extension.
-(a) Directory structure showing icephys and ecephys datatypes.
-(b) Metadata inheritance hierarchy.
-(c) Relationship between probes, electrodes, and channels.
-(d) Integration with analysis tools and repositories.}
+% \includegraphics[width=\linewidth]{figures/bep032_overview}
+\caption{Overview of the BIDS microelectrode electrophysiology extension showing an example extracellular electrophysiology dataset. Left: directory structure with the \texttt{ecephys/} datatype folder containing data files and metadata. Right: file contents showing (a) the sidecar JSON with recording metadata, (b) \texttt{probes.tsv} describing probe placement and type, (c) \texttt{electrodes.tsv} with probe-relative electrode positions, (d) \texttt{channels.tsv} linking recorded signals to electrodes, and (e) example voltage traces. Numbered labels connect files in the directory tree to their content panels.}
 \label{fig:overview}
 \end{figure}
-
-\begin{figure}[ht]
-\centering
-% Compile from scripts/microephys_ecephys_schematic.tex
-% \includegraphics[width=\linewidth]{figures/microephys_ecephys_schematic}
-\caption{Directory structure and file organization for extracellular electrophysiology (\texttt{ecephys}) recordings.
-The schematic shows the hierarchical relationship between data files, metadata sidecars, and tabular specification files.
-Numbered labels indicate the correspondence between files in the directory tree and their content structure.
-The three-level hierarchy (probes, electrodes, channels) captures the physical recording setup, with probe-relative electrode coordinates and optional anatomical coordinates via the \texttt{space} entity.}
-\label{fig:ecephys_schematic}
-\end{figure}
-
-\begin{figure}[ht]
-\centering
-% Compile from scripts/microephys_icephys_schematic.tex
-% \includegraphics[width=\linewidth]{figures/microephys_icephys_schematic}
-\caption{Directory structure and file organization for intracellular electrophysiology (\texttt{icephys}) recordings.
-This example shows a patch-clamp dataset with brain slice samples.
-The \texttt{samples.tsv} file (at the dataset root) describes tissue samples, while the recording-specific files follow the same probe-electrode-channel hierarchy as extracellular recordings.
-Intracellular-specific metadata includes pipette solution, recording mode (current-clamp or voltage-clamp), and sample preparation details.}
-\label{fig:icephys_schematic}
-\end{figure}
-
-\begin{table}[ht]
-\centering
-\caption{Required and optional files for microelectrode electrophysiology recordings}
-\label{tab:files}
-\end{table}
-
-\begin{table}[ht]
-\centering
-\caption{Required metadata fields and their descriptions}
-\label{tab:metadata}
-\end{table}
-
-\begin{table}[ht]
-\centering
-\caption{Channel types for microelectrode recordings}
-\label{tab:channels}
-\end{table}
-
-\begin{table}[ht]
-\centering
-\caption{Example datasets demonstrating the specification}
-\label{tab:datasets}
-\end{table}
-
-% Online-only tables if needed for comprehensive metadata listings
-
-% \begin{table}[ht]
-% \centering
-% \begin{tabular}{|l|l|l|}
-% \hline
-% Condition & n & p \\
-% \hline
-% A & 5 & 0.1 \\
-% \hline
-% B & 10 & 0.01 \\
-% \hline
-% \end{tabular}
-% \caption{\label{tab:example}Legend (350 words max). Example legend text.}
-% \end{table}
 
 \end{document}
