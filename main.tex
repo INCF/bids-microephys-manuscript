@@ -7,7 +7,7 @@
 
 \title{Microelectrode electrophysiology: Extending the Brain Imaging Data Structure to intracellular and extracellular recordings in animal models}
 
-% Following author list patterns from Pernet2019 (EEG-BIDS: 24 authors), Holdgraf2019 (iEEG-BIDS: 44 authors)
+% Add authors
 \author[1,*]{First Author}
 % Add 20-40 authors representing diverse stakeholders as per successful extensions
 
@@ -15,7 +15,6 @@
 % This is a manuscript template for Data Descriptor submissions to \emph{Scientific Data} (\href{http://www.nature.com/scientificdata}{http://www.nature.com/scientificdata}). The abstract must be no longer than 170 words, and should succinctly describe the study, the assay(s) performed, the resulting data, and the reuse potential, but should not make any claims regarding new scientific findings. No references are allowed in this section.
 
 % Following Scientific Data format - 170 words max, no references
-% Pattern from Pernet2019, Niso2018, Holdgraf2019
 The Brain Imaging Data Structure (BIDS) has facilitated data sharing and tool development in human neuroimaging.
 We present an extension for microelectrode electrophysiology recordings in animal models, addressing the unique requirements of intracellular and extracellular recordings.
 This extension introduces two new data types: 'icephys' for intracellular and 'ecephys' for extracellular recordings, supporting diverse recording modalities from patch-clamp to high-density silicon probes.
@@ -39,23 +38,20 @@ This standardization enables reproducible analysis pipelines, facilitates data s
 
 % (700 words maximum) An overview of the study design, the assay(s) performed, and the created data, including any background information needed to put this study in the context of previous work and the literature. The section should also briefly outline the broader goals that motivated the creation of this dataset and the potential reuse value. We also encourage authors to include a figure that provides a schematic overview of the study and assay(s) design. The Background \& Summary should not include subheadings. This section and the other main body sections of the manuscript should include citations to the literature as needed.
 
-% 700 words max, following structure from Gorgolewski2016, Pernet2019, Holdgraf2019
+% 700 words max
 
 % Paragraph 1: Field context and technological advances
-% Following Pernet2019 opening
 Microelectrode electrophysiology encompasses techniques for recording electrical activity from individual neurons to local field potentials, providing crucial insights into neural computation.
 Recent technological advances, including high-density silicon probes and standardized probe designs through the Neuropixels project, have dramatically increased data acquisition rates and experimental complexity.
 % Add statistics on data growth, number of labs using these techniques
 
 % Paragraph 2: Current standardization landscape and fragmentation
-% Following pattern from Holdgraf2019, Niso2018
 While comprehensive data formats exist for neurophysiology (NWB; NIX),
 the field lacks standardized organization principles for datasets, metadata specifications, and directory structures.
 This fragmentation impedes data sharing, with surveys indicating [ADD SURVEY DATA] of researchers struggling to share or reuse electrophysiology data due to inconsistent formats and missing metadata.
 % Reference Neo, existing tools showing fragmentation
 
 % Paragraph 3: BIDS success and extension rationale
-% Following Gorgolewski2016, Poldrack2024
 BIDS has successfully standardized human neuroimaging data organization [cite],
 with over 850 datasets on OpenNeuro [cite] and adoption by major repositories.
 Prior BIDS extensions for human electrophysiology (EEG [cite], MEG [cite], iEEG [cite])
@@ -72,9 +68,9 @@ Microelectrode recordings present unique challenges:
 % Paragraph 5: Extension overview and contributions
 Here we present BEP032, extending BIDS to microelectrode electrophysiology, with a focus on animal models.
 This extension: [summarize key contributions]
-% List main contributions following Holdgraf2019 pattern
+% List main contributions
 
-% Include Figure 1: Schematic overview (following Pernet2019 Fig 1, Bourget2022 Fig 1)
+% Include Figure 1: Schematic overview
 % Show directory structure, data flow, and relationship to other modalities
 
 \section*{Methods}
@@ -95,15 +91,12 @@ This extension: [summarize key contributions]
 % \subsubsection*{Third-level section}
 
 \subsection*{Community Development Process}
-% Following detailed process documentation from Pernet2019 Section "BIDS-EEG: the process"
-% Timeline following ASL-BIDS pattern
 
 The development of BEP032 began in [DATE] through the INCF Working Group on Standardized Data Structures.
 % Document meetings, consultations, public comment periods
-% Include stakeholder groups table as in Holdgraf2019
+% Include stakeholder groups table
 
 \subsection*{Scope and Design Principles}
-% Following Niso2018 "Scope" section
 
 \subsubsection*{Inclusion Criteria}
 % Define what's included: patch clamp, sharp electrode, extracellular, etc.
@@ -133,28 +126,23 @@ The division between intracellular (icephys) and extracellular (ecephys) electro
 \subsection*{Directory Structure and File Organization}
 % Following pattern from all electrophysiology papers
 
+
 \subsubsection*{Data Type Specification}
 % Explain icephys vs ecephys separation
 % Reference Table showing directory structure
 
 \subsubsection*{Required and Optional Files}
-% Table following Pernet2019 Table 1, Holdgraf2019 Table 2
 
 \subsection*{Metadata Specifications}
 
 \subsubsection*{Inheritance Principle}
-% Following Gorgolewski2016 explanation
 
 \subsubsection*{Required Metadata Fields}
-% Table with field, description, and justification
-% Pattern from Pernet2019 Table 3, Niso2018 Table 3
 
 \subsubsection*{Animal-Specific Metadata}
-% Building on Bourget2022
 % Species, strain, age handling
 
 \subsection*{Probe, Electrode, and Channel Specifications}
-% Core technical content following iEEG-BIDS electrode handling
 
 \subsubsection*{Probes TSV Specification}
 % New for microelectrophysiology - NOT present in iEEG-BIDS
@@ -168,15 +156,12 @@ The division between intracellular (icephys) and extracellular (ecephys) electro
 % Enables automated electrode position lookup from community library
 
 \subsubsection*{Electrodes TSV Specification}
-% Adapt from Holdgraf2019
 % Handle 3D coordinates, impedance
 
 \subsubsection*{Channels TSV Specification}
-% Extend Pernet2019 channel types
 % Added channel types for microelectrophysiology
 
 \subsection*{Coordinate Systems}
-% Following Holdgraf2019 Section 2.4
 % KEY DIFFERENCE from iEEG: dual coordinate approach
 
 \subsubsection*{Dual Coordinate Approach}
@@ -211,8 +196,7 @@ The division between intracellular (icephys) and extracellular (ecephys) electro
 % Justifying sufficient metadata for spike sorting
 
 \subsection*{Integration with Existing Tools}
-% Following Pernet2019 Section 4
-% nuroconv - to NWB/NIX
+% neuroconv - to NWB/NIX
 
 \subsubsection*{Conversion Tools}
 % nwb2bids
@@ -228,10 +212,8 @@ The division between intracellular (icephys) and extracellular (ecephys) electro
 
 % Tables should be used to support the data records, and should clearly indicate the samples and subjects (study inputs), their provenance, and the experimental manipulations performed on each (please see 'Tables' below). They should also specify the data output resulting from each data-collection or analytical step, should these form part of the archived record.
 
-% Following Bourget2022, Holdgraf2019 pattern
 
 Example datasets demonstrating the specification are available at [REPOSITORY].
-Table~\ref{tab:datasets} summarizes the datasets, recording techniques, and use cases.
 
 % Table: Example datasets
 % Columns: Dataset name, Species, Recording type, Probe type, Duration, Size, DOI
@@ -252,7 +234,6 @@ Table~\ref{tab:datasets} summarizes the datasets, recording techniques, and use 
 
 % This section presents any experiments or analyses that are needed to support the technical quality of the dataset. This section may be supported by figures and tables, as needed. This is a required section; authors must present information justifying the reliability of their data.
 
-% Following Pernet2019, Niso2018 validation approaches
 
 \subsection*{Validator Compliance}
 % BIDS validator extension testing
@@ -308,7 +289,6 @@ The specification is maintained at: https://github.com/bids-standard/bids-specif
 % Acknowledgements should be brief, and should not include thanks to anonymous referees and editors, or effusive comments. Grant or contribution numbers may be acknowledged.
 
 \section*{Author Contributions}
-% Following Holdgraf2019 detailed contributions
 
 % Must include all authors, identified by initials, for example:
 % A.A. conceived the experiment(s), A.A. and B.A. conducted the experiment(s), C.A. and D.A. analysed the results. All authors reviewed the manuscript.
@@ -339,31 +319,43 @@ The authors declare no competing interests.
 \label{fig:overview}
 \end{figure}
 
-% \begin{figure}[ht]
-% \centering
-% \includegraphics[width=\linewidth]{stream}
-% \caption{Legend (350 words max). Example legend text.}
-% \label{fig:stream}
-% \end{figure}
+\begin{figure}[ht]
+\centering
+% Compile from scripts/microephys_ecephys_schematic.tex
+% \includegraphics[width=\linewidth]{figures/microephys_ecephys_schematic}
+\caption{Directory structure and file organization for extracellular electrophysiology (\texttt{ecephys}) recordings.
+The schematic shows the hierarchical relationship between data files, metadata sidecars, and tabular specification files.
+Numbered labels indicate the correspondence between files in the directory tree and their content structure.
+The three-level hierarchy (probes, electrodes, channels) captures the physical recording setup, with probe-relative electrode coordinates and optional anatomical coordinates via the \texttt{space} entity.}
+\label{fig:ecephys_schematic}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+% Compile from scripts/microephys_icephys_schematic.tex
+% \includegraphics[width=\linewidth]{figures/microephys_icephys_schematic}
+\caption{Directory structure and file organization for intracellular electrophysiology (\texttt{icephys}) recordings.
+This example shows a patch-clamp dataset with brain slice samples.
+The \texttt{samples.tsv} file (at the dataset root) describes tissue samples, while the recording-specific files follow the same probe-electrode-channel hierarchy as extracellular recordings.
+Intracellular-specific metadata includes pipette solution, recording mode (current-clamp or voltage-clamp), and sample preparation details.}
+\label{fig:icephys_schematic}
+\end{figure}
 
 \begin{table}[ht]
 \centering
 \caption{Required and optional files for microelectrode electrophysiology recordings}
-% Following Pernet2019 Table 1 format
 \label{tab:files}
 \end{table}
 
 \begin{table}[ht]
 \centering
 \caption{Required metadata fields and their descriptions}
-% Following Niso2018 Table 3 format
 \label{tab:metadata}
 \end{table}
 
 \begin{table}[ht]
 \centering
 \caption{Channel types for microelectrode recordings}
-% Extending Pernet2019 Table 2
 \label{tab:channels}
 \end{table}
 
