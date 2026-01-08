@@ -113,6 +113,12 @@ This extension: [summarize key contributions]
 % - electrodes.tsv: name, probe_name, x, y, z (probe-relative)
 % - channels.tsv: name, type, units, sampling_frequency, reference, electrode linkage
 
+The iEEG-BIDS and EEG-BIDS extensions distinguished electrodes from channels: an electrode is a contact point with tissue, a channel is the amplifier and digitizer that produces a stored time series. These are not equivalent, a differential recording derives one channel from two electrodes, a Neuropixels electrode may yield separate highpass and LFP channels at different sampling rates, and a sync signal is a channel with no electrode at all. The prior extensions noted that electrodes can be ``organized into arrays, grids, or probes,'' but their metadata captured only electrodes and channels, not this grouping.
+
+We add an explicit probe level. A probe is the physical device, Neuropixels, tetrode bundle, patch pipette, carrying one or more electrodes. This matters because probe-level metadata (manufacturer, surgical coordinates, insertion angle) applies to all electrodes on that probe, while electrode-level metadata (position, impedance) defines the geometry, and channel-level metadata (gain, filters) describes the acquisition.
+
+Three files capture this. \texttt{probes.tsv} lists each probe with its type and surgical placement. \texttt{electrodes.tsv} enumerates contact sites, linking each to its probe and specifying probe-relative coordinates for spike sorting. \texttt{channels.tsv} documents recorded signals: sampling frequency, units, source electrode, and reference. Channels without electrodes (sync, stimulus) use \texttt{n/a}; ground, typically hardware like a skull screw or ear clip, is defined globally in the sidecar JSON and can be overridden per-channel if it differs. A \texttt{stream\_id} column links channels to data objects within the NWB or NIX file.
+
 \subsection*{Intracellular vs Extracellular Datatypes}
 
 % Why two datatypes?
